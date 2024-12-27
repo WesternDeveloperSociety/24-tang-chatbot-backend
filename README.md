@@ -1,4 +1,4 @@
-# PROJECT NAME
+# Navigation Chatbot
 
 below are common sections that you may like to populate or leave empty to populate later. refer to the template repo `WesternDeveloperSociety/project-spec-template` for the default.
 
@@ -69,11 +69,15 @@ npm run start
 *give yourself some credit*
 
 Team Leads:
-- Bob
-- His friends
+- Derek
+- Ben
 
 Developers:
-- Robert
-- John
-- A few more friends
+- Jenusan
+- Jason
+- Rohan
+- Aaryan
+- Jasper
+- Raj
+- Issar
 
