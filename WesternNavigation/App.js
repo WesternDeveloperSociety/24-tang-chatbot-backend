@@ -2,11 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import MapboxGL from '@rnmapbox/maps';
 import React, { useEffect } from 'react';
+import MAPBOX_API_KEY from '.env';
 
 export default function App() {
   useEffect(() => {
-    MapboxGL.setAccessToken('pk.eyJ1IjoiaW1hbmtub2oiLCJhIjoiY201eTU5N3gwMDBocTJrbzdqMnF3dDZvMiJ9.GsLjpk8qzI_CSvWWhzEI_w');
-  },[]); 
+    Mapb.setAccessToken(MAPBOX_API_KEY);
+  },[]); oxGL
 
   return (
     <View style={styles.container}>
