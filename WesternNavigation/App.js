@@ -7,7 +7,7 @@ import MAPBOX_API_KEY from '.env';
 export default function App() {
   useEffect(() => {
     Mapb.setAccessToken(MAPBOX_API_KEY);
-  },[]); oxGL
+  },[]);
 
   return (
     <View style={styles.container}>
