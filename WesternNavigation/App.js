@@ -1,34 +1,43 @@
 import { StatusBar } from "expo-status-bar";
+import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import MapboxGL from "@rnmapbox/maps";
-import React, { useEffect } from "react";
+import Mapbox, { MapView } from "@rnmapbox/maps";
 
-export default function App() {
-  useEffect(() => {
-    MapboxGL.setAccessToken(
-      "pk.eyJ1IjoiaW1hbmtub2oiLCJhIjoiY201eTU5N3gwMDBocTJrbzdqMnF3dDZvMiJ9.GsLjpk8qzI_CSvWWhzEI_w"
+Mapbox.setAccessToken(
+  "pk.eyJ1IjoidGFuZ2NoYXRib3QiLCJhIjoiY202OGIyeDA4MDIwcjJqbjNpNDhudXV6OSJ9.s7BDnOLzQFEcI3Qxbmj2LA"
+);
+
+export default class App extends Component {
+  // Disable telemetry
+  componentDidMount() {
+    Mapbox.setTelemetryEnabled(false);
+  }
+
+  render() {
+    return (
+      <View style={styles.page}>
+        <View style={styles.container}>
+          <MapView style={styles.map} />
+        </View>
+      </View>
     );
-  }, []);
-
-  return (
-    <View style={styles.container}>
-      <MapboxGL.MapView style={styles.map}>
-        <MapboxGL.Camera
-          zoomLevel={8}
-          centerCoordinate={[-81.233, 42.9819]} // Western University Coordinates
-        />
-      </MapboxGL.MapView>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  }
 }
 
 const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
+  },
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    width: "100%",
+  },
+  map: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
   },
 });

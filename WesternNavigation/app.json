@@ -12,14 +12,24 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoidGFuZ2NoYXRib3QiLCJhIjoiY202YXg2YnM5MDJkaTJtb2JoanF4eGNkdiJ9.LUYvkfpEYvKJgYK5YkLDOA"
+        }
+      ]
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.WesternNavigation"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.WesternNavigation"
     },
     "web": {
       "favicon": "./assets/favicon.png"
