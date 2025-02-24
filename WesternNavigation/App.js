@@ -1,36 +1,43 @@
-import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Mapbox, { MapView } from "@rnmapbox/maps";
+import { StyleSheet, View } from "react-native";
+import MapboxGL from "@rnmapbox/maps"; // ✅ Correct Import
 
-Mapbox.setAccessToken(
-  "pk.eyJ1IjoidGFuZ2NoYXRib3QiLCJhIjoiY202OGIyeDA4MDIwcjJqbjNpNDhudXV6OSJ9.s7BDnOLzQFEcI3Qxbmj2LA"
-);
+// ✅ Correct Token Setup
+MapboxGL.setAccessToken("pk.eyJ1IjoidGFuZ2NoYXRib3QiLCJhIjoiY202OGIyeDA4MDIwcjJqbjNpNDhudXV6OSJ9.s7BDnOLzQFEcI3Qxbmj2LA");
+MapboxGL.setTelemetryEnabled(false);
+MapboxGL.setWellKnownTileServer("Mapbox");
 
 export default class App extends Component {
-  // Disable telemetry
-  componentDidMount() {
-    Mapbox.setTelemetryEnabled(false);
-  }
-
   render() {
     return (
-      <View style={styles.page}>
-        <View style={styles.container}>
-          <MapView style={styles.map} />
-        </View>
+      <View style={styles.container}>
+        {/* ✅ Correct MapboxGL Component */}
+        <MapboxGL.MapView
+          style={styles.map}
+          styleURL="mapbox://styles/mapbox/streets-v12"
+          zoomEnabled={true}
+          rotateEnabled={true}
+        >
+          {/* ✅ Correct Camera Usage */}
+          <MapboxGL.Camera
+            zoomLevel={15}
+            centerCoordinate={[-81.2748, 43.0060]} // ✅ Longitude first
+            pitch={60}
+            animationMode={"flyTo"}
+            animationDuration={6000}
+          />
+
+          {/* ✅ Correct PointAnnotation Usage */}
+          <MapboxGL.PointAnnotation id="marker" coordinate={[-81.2748, 43.0060]}>
+            <View style={styles.marker} />
+          </MapboxGL.PointAnnotation>
+        </MapboxGL.MapView>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF",
-  },
   container: {
     flex: 1,
     width: "100%",
@@ -39,5 +46,11 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
+  },
+  marker: {
+    width: 20,
+    height: 20,
+    backgroundColor: "red",
+    borderRadius: 10,
   },
 });
