@@ -2,7 +2,7 @@ import React from 'react';
 import { MapView, useMapData, useMap, Label } from '@mappedin/react-sdk';
 import '@mappedin/react-sdk/lib/esm/index.css';
 import { Space } from '@mappedin/react-sdk/mappedin-js/src';
-import MappedIn from './components/mappedin'
+import Map from './components/mappedin'
 
 export default function App() {
 
@@ -23,7 +23,7 @@ export default function App() {
 
   return mapData ? (
     <MapView mapData={mapData}>
-      <MappedIn />
+      <Map />
     </MapView>
   ) : null;
 }

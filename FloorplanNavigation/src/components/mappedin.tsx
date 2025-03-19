@@ -4,7 +4,7 @@ import '@mappedin/react-sdk/lib/esm/index.css';
 import { Space } from '@mappedin/react-sdk/mappedin-js/src';
 
 
-function MappedIn() {
+function Map() {
   const { mapData } = useMap();
 
   return mapData.getByType('space').map((space) => (
@@ -12,4 +12,4 @@ function MappedIn() {
   ));
 }
 
-export default MappedIn;
+export default Map;
