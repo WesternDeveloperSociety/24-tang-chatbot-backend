@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #343541;
+  font-family: 'Inter', sans-serif; /* Updated font */
+  color: #FFFFFF;
+
+  /* Flexbox for vertical and horizontal centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem; /* Adjust spacing below the heading */
+  font-weight: 600; /* Use a bold weight for the title */
+}
+
+form {
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #40414F;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for better appearance */
+}
+
+label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: 500; /* Slightly bold for labels */
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #535466;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif; /* Ensure input uses the same font */
+}
+
+input::placeholder {
+  color: #A5A5A5;
+  font-family: 'Inter', sans-serif; /* Ensure placeholder uses the same font */
+}
+
+button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #10A37F;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif; /* Ensure button uses the same font */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #18B089;
+}
+
+.query-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #343541;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif; /* Ensure container uses the same font */
+}
+
+.query-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600; /* Bold for emphasis */
+}
+
+.query-form {
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+  background-color: #40414F;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.query-input-group {
+  margin-bottom: 1rem;
+}
+
+.query-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500; /* Slightly bold for labels */
+}
+
+.query-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #535466;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif; /* Ensure input uses the same font */
+}
+
+query-input::placeholder {
+  color: #A5A5A5;
+  font-family: 'Inter', sans-serif; /* Ensure placeholder uses the same font */
+}
+
+.query-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #10A37F;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif; /* Ensure button uses the same font */
+  cursor: pointer;
+}
+
+.query-button:hover {
+  background-color: #18B089;
+}
