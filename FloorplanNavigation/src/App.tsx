@@ -1,29 +1,17 @@
-import React from 'react';
-import { MapView, useMapData, useMap, Label } from '@mappedin/react-sdk';
-import '@mappedin/react-sdk/lib/esm/index.css';
-import { Space } from '@mappedin/react-sdk/mappedin-js/src';
-import Map from './components/mappedin'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Query from './Query.tsx';
+import Map from './Map.tsx';
 
 export default function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Route for the Query page */}
+        <Route path="/" element={<Query />} />
 
-  // api schtuff
-  const { isLoading, error, mapData } = useMapData({
-    key: import.meta.env.VITE_KEY,
-    secret: import.meta.env.VITE_SECRET,
-    mapId: import.meta.env.VITE_MAPID,
-  });
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error.message}</div>;
-  }
-
-  return mapData ? (
-    <MapView mapData={mapData}>
-      <Map />
-    </MapView>
-  ) : null;
+        {/* Route for the Map page */}
+        <Route path="/map" element={<Map />} />
+      </Routes>
+    </Router>
+  );
 }
