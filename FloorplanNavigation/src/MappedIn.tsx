@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { MapView, useMapData, useMap, Label } from '@mappedin/react-sdk';
 import '@mappedin/react-sdk/lib/esm/index.css';
-import './Map.css';
+import './MappedIn.css';
 import { Space } from '@mappedin/react-sdk/mappedin-js/src';
 
 function MyCustomComponent() {
