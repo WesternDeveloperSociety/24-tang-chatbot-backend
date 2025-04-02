@@ -1,19 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Query.css';
 
 export default function Query() {
   const [startRoom, setStartRoom] = useState('');
   const [endRoom, setEndRoom] = useState('');
+  const [validRooms, setValidRooms] = useState<string[]>([]);
   const navigate = useNavigate();
 
-  // List of valid room names
-  const validRooms = ['1110','1220']; // Replace with actual room names
+  useEffect(() => {
+    const fetchRooms = async () => {
+      try {
+        const response = await fetch('https://api.mappedin.com/maps/67bf33fc06c161000b65f558/rooms');
+        if (!response.ok) {
+          throw new Error('Failed to fetch rooms');
+        }
+        const data = await response.json();
+        const rooms = data.map((room: { name: string }) => room.name);
+        setValidRooms(rooms);
+      } catch (error) {
+        console.error('Error fetching rooms:', error);
+      }
+    };
+
+    fetchRooms();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Check if the startRoom and endRoom are valid
+    // Validate the startRoom and endRoom values against the fetched rooms
     if (!validRooms.includes(startRoom)) {
       alert(`Invalid Starting Room: "${startRoom}". Please enter a valid room.`);
       return;
@@ -23,8 +39,6 @@ export default function Query() {
       alert(`Invalid Destination Room: "${endRoom}". Please enter a valid room.`);
       return;
     }
-
-    // Navigate to the Map page with the startRoom and endRoom as query parameters
     navigate(`/map?startRoom=${encodeURIComponent(startRoom)}&endRoom=${encodeURIComponent(endRoom)}`);
   };
 
