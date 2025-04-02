@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Query from './Query.tsx';
-import Map from './Map.tsx';
+import Map from './MappedIn.tsx';
 
 export default function App() {
   return (
